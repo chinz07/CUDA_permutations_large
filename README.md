@@ -30,6 +30,9 @@ Generate All Permutations only table:
   <tr>
     <td> 14</td><td> 87,178,291,200 </td><td> 304.3s </td>
 </tr>
+<tr>
+    <td> 15</td><td> 1,307,674,368,000 </td><td> 5361.48s </td>
+</tr>
 </table>
   
 Generate All Permutations with full Evaluation of Permutation, Scan and reduction table:

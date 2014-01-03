@@ -22,10 +22,11 @@ Generate All Permutations only table:
 <tr>
     <th>Total elements</th><th>Number of permutations</th><th>Tesla K20c GPU time</th>
 </tr>
-    <td> 13</td><td> 6,227,020,800 </td><td> NA</td><td> 19.4s </td>
+    <tr>
+    <td> 13</td><td> 6,227,020,800 </td><td> 19.4s </td>
   </tr
   <tr>
-    <td> 14</td><td> 87,178,291,200 </td><td> NA</td><td> 304.3s </td>
+    <td> 14</td><td> 87,178,291,200 </td><td> 304.3s </td>
 </tr>
 </table>
   
@@ -36,6 +37,7 @@ Generate All Permutations with full Evaluation of Permutation, Scan and reductio
   <tr>
     <th>Total elements</th><th>Tesla K20c GPU time</th><th>Tesla K40x GPU time</th>
   </tr>
+  <tr>
     <td> 13</td><td> 23.6s </td><td> 20.0s </td>
   </tr
   <tr>

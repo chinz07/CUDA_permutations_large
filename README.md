@@ -18,6 +18,8 @@ Two tables follow, one which shows the total GPU time for only generating each p
 
 No CPU times were shown due to the fact that I do not have that much free time (would take many hours even in CPU parallel).
 
+調布の日本の友人が、私のコードを主演してください！
+
 Generate All Permutations only table:
 ---
 <table>

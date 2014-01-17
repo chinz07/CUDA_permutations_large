@@ -42,20 +42,22 @@ Generate All Permutations with full Evaluation of Permutation, Scan and reductio
 
 <table>
   <tr>
-    <th>Total elements</th><th>Tesla K20c GPU time</th><th>Tesla K40x GPU time</th>
+    <th>Total elements</th><th>Tesla K20c GPU time</th><th>Tesla K40x GPU time</th><th>Quadro K6000 GPU time</th>
   </tr>
   <tr>
-    <td> 13</td><td> 23.6s </td><td> 20.0s </td>
+    <td> 13</td><td> 23.6s </td><td> 20.0s </td><td>17.6s</td>
   </tr
   <tr>
-    <td> 14</td><td> 415.3s </td><td> 327.4s </td>
+    <td> 14</td><td> 415.3s </td><td> 327.4s </td><td>272.29s</td>
 </tr>
  <tr>
-    <td> 15</td><td> 6374s </td><td> 5546.4s </td>
+    <td> 15</td><td> 6374s </td><td> 5546.4s </td><td> 4608.83s</td>
 </tr>
  </table>
  
  __
+ 
+ Thanks to vacaloca for the Quadro K6000 running times!(It has a faster 901 mhz clock speed which in this case makes a big difference over the Tesla K40x).
  
  For the earlier version see my other CUDA_next_permutation project. The full evaluation version will only work with GPU of compute capability 3.0 or higher (GTX 660 or better). Will perform better on the Tesla line(or Titan) due to the higher number of 64-bit double precision units.
  
@@ -69,3 +71,5 @@ Generate All Permutations with full Evaluation of Permutation, Scan and reductio
   ga('send', 'pageview');
 
 </script>
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/b2a3438cc40be860aca12c8966a10aa6 "githalytics.com")](http://githalytics.com/OlegKonings/CUDA_permutations_large)
+

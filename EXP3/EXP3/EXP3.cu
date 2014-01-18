@@ -33,6 +33,9 @@ typedef vector<int> Vi;
 
 #define NUM_ELEMENTS 13//have not tested beyond 15!, but should be able to handle if you adjust THREADS, blockSize and MEGA
 #define DO_TEST 1
+#ifdef TEST_RAW
+#undef TEST_RAW
+#endif
 
 const int blockSize=4096;
 
@@ -67,9 +70,11 @@ int _add_up(const int nume,const vector<int> &AA);
 long long fact_val(long long cur){return cur<=1LL ? 1LL:(cur*fact_val(cur-1LL));}
 
 //basic CUDA GPU kernel which calcuates the permIdx'th permutation of (digits) digits
+#ifdef TEST_RAW
 template<int blockWork>
 __global__ void _gpu_perm_basic(const int digits);//this goes through the permutations with any type of analysis
 __global__ void _gpu_perm_basic_last_step(const long long bound,const int digits,const long long rem_start);
+#endif
 
 //generates all permutations AND evaluates the current permutation using __constant__ memory and stores the best result (along with the respective permutation)
 template<int blockWork>
@@ -85,7 +90,7 @@ int main(){
         char ch;
         srand(time(NULL));
 
-		const bool test_raw=true;//for testing of raw version or full version with permutation evaluation
+		const bool test_raw=false;//for testing of raw version or full version with permutation evaluation
     
 		int compute_capability=0;
 		cudaDeviceProp deviceProp;
@@ -185,6 +190,8 @@ int main(){
 
 				}else{//just test the array permutation generation by itself
 
+#ifdef TEST_RAW
+
 					cout<<"\nTesting raw permutation version.\n";
 
 					wTimerRes = 0;
@@ -214,6 +221,8 @@ int main(){
 					cout<<"GPU timing for "<<NUM_ELEMENTS <<"!: "<<double(GPUtime)/1000.0f<<" seconds.\n";
 					DestroyMMTimer(wTimerRes, init);
 					cout <<H_F[NUM_ELEMENTS]<<" permutations generated, took apx "<<long long(NUM_ELEMENTS*NUM_ELEMENTS)*H_F[NUM_ELEMENTS]<<" iterations/calc on gpu bitches!\n";
+
+#endif
 
 				}
         }
@@ -290,7 +299,7 @@ int _add_up(const int nume,const vector<int> &AA){
 
         return ans;
 }
-
+#ifdef TEST_RAW
 //this version has not built in evaluation step, just goes through all permutations in local GPU memory space
 template<int blockWork>
 __global__ void _gpu_perm_basic(const int digits){
@@ -375,6 +384,7 @@ __global__ void _gpu_perm_basic_last_step(const long long bound,const int digits
 	}
 	//done, and evaluation step of current permutation in array A would take place after this line in kernel
 }
+#endif
 
 //for full permutations using __constant__ array to store dependencies and value info
 
@@ -662,7 +672,6 @@ __global__ void _gpu_perm_last_step(int* __restrict__ ans_val,int2* __restrict__
 
 		}
 }
-
 
 
 

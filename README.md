@@ -3,7 +3,7 @@ CUDA_permutations_large
 
 next_permutation for 13! and up
 
-привет Белгорода и Волгограда!
+привет Белгорода и Волгограда и Омск!
 
 This is adjusted version of my CUDA implementation of the STL::next_permutation() function. Generates all n! possibilites of array in local GPU memory.
 Two versions, one which only generates the permutations of the array, and the other which evaluates the generated permutation, calculates the optimal answer AND the permutation responsible for the answer, caches in GPU memory, reduces over all threa blocks, and returns the optimal answer and the respective permutation to host memory.

@@ -18,7 +18,7 @@ Two tables follow, one which shows the total GPU time for only generating each p
 
 No CPU times were shown due to the fact that I do not have that much free time (would take many hours even in CPU parallel).
 
-NOTE: no overlocking of GPU, is running at stock 700 Mhz
+NOTE: no overlocking of GPU, is running at stock 706 Mhz
 
 調布の日本の友人が、私のコードを主演してください！
 

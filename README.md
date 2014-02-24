@@ -50,14 +50,18 @@ Generate All Permutations with full Evaluation of Permutation, Scan and reductio
     <td> 13</td><td> 23.6s </td><td> 20.0s </td><td>17.6s</td>
   </tr
   <tr>
-    <td> 14</td><td> 415.3s </td><td> 327.4s </td><td>272.29s</td>
+    <td> 14</td><td> 390.1s </td><td> 327.4s </td><td>272.29s</td>
 </tr>
  <tr>
     <td> 15</td><td> 6374s </td><td> 5546.4s </td><td> 4608.83s</td>
 </tr>
+<tr>
+    <td> 16</td><td> NA </td><td> 101774 s </td><td> NA </td>
+</tr>
  </table>
  
- __
+ ___
+ NOTE: for 16! a Tesla K40c was used, which is 15% slower than K40x
  
  Thanks to vacaloca for the Quadro K6000 running times!(It has a faster 901 mhz clock speed which in this case makes a big difference over the Tesla K40x).
  

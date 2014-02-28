@@ -5,22 +5,8 @@ next_permutation for 13! and up
 
 NOTE: Updated code! Now at least 30% faster implementation on compute 3.5.
 
-This is adjusted version of my CUDA implementation of the STL::next_permutation() function. Generates all n! possibilites of array in local GPU memory.
-Two versions, one which only generates the permutations of the array, and the other which evaluates the generated permutation, calculates the optimal answer AND the permutation responsible for the answer, caches in GPU memory, reduces over all threa blocks, and returns the optimal answer and the respective permutation to host memory.
-
-Would be very interested in seeing Python, Java, Ruby, C# or other 'higher level' language implementation of the same function. In particular any multithreaded CPU version.
-
-Note: for the test evaluation a super simple max-DAG test was used, which can be implemented faster than n! if one uses bitmasks for dependencies. This version is just for testing, and there are other permutation problems which do need all permutations generated for evaluations. This code will do that in very fast time for a single GPU/CPU setup.
-
-For a given value/cost data set associated with each index it is possible that more than one permutation maps to an optimal answer. In such a case the GPU version may return a different permutation than the CPU version, but the value answer should be the same.
-
 Two tables follow, one which shows the total GPU time for only generating each permutations of n elements, and another which generates the permutations, evaluates that permutation, and performs a reduction/scan which saves the optimal answer and the permuation associated with that answer:
 
-No CPU times were shown due to the fact that I do not have that much free time (would take many hours even in CPU parallel).
-
-NOTE: no overlocking of GPU, is running at stock 706 Mhz
-
-調布の日本の友人が、私のコードを主演してください！
 
 Generate All Permutations of Local Array only(no Evaluation) Timing table:
 ---
@@ -41,10 +27,11 @@ Generate All Permutations of Local Array only(no Evaluation) Timing table:
   
 Generate All Permutations of Local Array with full Evaluation of Permutation, Scan and reduction table:
 ---
+ ___
 
 <table>
   <tr>
-    <th>Total elements</th><th>Num permutations x evaluation steps</th><th>Tesla K20c GPU time</th><
+    <th>Total elements</th><th>Num permutations X evaluation steps</th><th>Tesla K20c GPU time</th><
   </tr>
   <tr>
     <td> 13</td><td> 647,610,163,200 </td><td> 17.06s </td>
@@ -58,8 +45,18 @@ Generate All Permutations of Local Array with full Evaluation of Permutation, Sc
  </table>
  
  ___
+NOTE: no overlocking of GPU, is running at stock 706 Mhz
 
- 
+No CPU times were shown due to the fact that I do not have that much free time (would take many hours even in CPU parallel).
+ ____
+ This is adjusted version of my CUDA implementation of the STL::next_permutation() function. Generates all n! possibilites of array in local GPU memory.
+Two versions, one which only generates the permutations of the array, and the other which evaluates the generated permutation, calculates the optimal answer AND the permutation responsible for the answer, caches in GPU memory, reduces over all threa blocks, and returns the optimal answer and the respective permutation to host memory.
+
+Would be very interested in seeing Python, Java, Ruby, C# or other 'higher level' language implementation of the same function. In particular any multithreaded CPU version.
+
+Note: for the test evaluation a super simple max-DAG test was used, which can be implemented faster than n! if one uses bitmasks for dependencies. This version is just for testing, and there are other permutation problems which do need all permutations generated for evaluations. This code will do that in very fast time for a single GPU/CPU setup.
+
+For a given value/cost data set associated with each index it is possible that more than one permutation maps to an optimal answer. In such a case the GPU version may return a different permutation than the CPU version, but the value answer should be the same.
 
  
  For the earlier version see my other CUDA_next_permutation project. The full evaluation version will only work with GPU of compute capability 3.0 or higher (GTX 660 or better). Will perform better on the Tesla line(or Titan) due to the higher number of 64-bit double precision units.

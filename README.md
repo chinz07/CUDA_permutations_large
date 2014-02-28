@@ -3,7 +3,7 @@ CUDA_permutations_large
 
 next_permutation for 13! and up
 
-привет Белгорода и Волгограда и Омск!
+NOTE: Updated code! Now at least 30% faster implementation on compute 3.5.
 
 This is adjusted version of my CUDA implementation of the STL::next_permutation() function. Generates all n! possibilites of array in local GPU memory.
 Two versions, one which only generates the permutations of the array, and the other which evaluates the generated permutation, calculates the optimal answer AND the permutation responsible for the answer, caches in GPU memory, reduces over all threa blocks, and returns the optimal answer and the respective permutation to host memory.
@@ -22,48 +22,45 @@ NOTE: no overlocking of GPU, is running at stock 706 Mhz
 
 調布の日本の友人が、私のコードを主演してください！
 
-Generate All Permutations only table:
+Generate All Permutations of Local Array only(no Evaluation) Timing table:
 ---
 <table>
 <tr>
     <th>Total elements</th><th>Number of permutations</th><th>Tesla K20c GPU time</th>
 </tr>
     <tr>
-    <td> 13</td><td> 6,227,020,800 </td><td> 19.4s </td>
+    <td> 13</td><td> 6,227,020,800 </td><td> 12.17s </td>
   </tr
   <tr>
-    <td> 14</td><td> 87,178,291,200 </td><td> 304.3s </td>
+    <td> 14</td><td> 87,178,291,200 </td><td> 188.07s </td>
 </tr>
 <tr>
-    <td> 15</td><td> 1,307,674,368,000 </td><td> 5361.48s </td>
+    <td> 15</td><td> 1,307,674,368,000 </td><td> 3115.0s </td>
 </tr>
 </table>
   
-Generate All Permutations with full Evaluation of Permutation, Scan and reduction table:
+Generate All Permutations of Local Array with full Evaluation of Permutation, Scan and reduction table:
 ---
 
 <table>
   <tr>
-    <th>Total elements</th><th>Tesla K20c GPU time</th><th>Tesla K40x GPU time</th><th>Quadro K6000 GPU time</th>
+    <th>Total elements</th><th>Num permutations x evaluation steps</th><th>Tesla K20c GPU time</th><
   </tr>
   <tr>
-    <td> 13</td><td> 23.6s </td><td> 20.0s </td><td>17.6s</td>
+    <td> 13</td><td> 647,610,163,200 </td><td> 17.06s </td>
   </tr
   <tr>
-    <td> 14</td><td> 390.1s </td><td> 327.4s </td><td>272.29s</td>
+    <td> 14</td><td> 9,763,968,614,400 </td><td> 263.1s </td>
 </tr>
  <tr>
-    <td> 15</td><td> 6374s </td><td> 5546.4s </td><td> 4608.83s</td>
-</tr>
-<tr>
-    <td> 16</td><td> NA </td><td> 101774 s </td><td> NA </td>
+    <td> 15</td><td> 156,920,924,160,000 </td><td> 4332 s </td>
 </tr>
  </table>
  
  ___
- NOTE: for 16! a Tesla K40c was used, which is 15% slower than K40x
+
  
- Thanks to vacaloca for the Quadro K6000 running times!(It has a faster 901 mhz clock speed which in this case makes a big difference over the Tesla K40x).
+
  
  For the earlier version see my other CUDA_next_permutation project. The full evaluation version will only work with GPU of compute capability 3.0 or higher (GTX 660 or better). Will perform better on the Tesla line(or Titan) due to the higher number of 64-bit double precision units.
  

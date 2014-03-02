@@ -5,10 +5,10 @@ next_permutation for 13! and up
 
 NOTE: Updated code! Now at least 30% faster implementation on compute 3.5.
 
-Two tables follow, one which shows the total GPU time for only generating each permutations of n elements, and another which generates the permutations, evaluates that permutation, and performs a reduction/scan which saves the optimal answer and the permuation associated with that answer:
+Two tables follow, one which shows the total GPU time for only generating all permutations of n elements of an array in local memory, and another which generates the permutations of array, evaluates that permutation, and performs a reduction/scan which saves the optimal answer and a permuation associated with that answer:
 
 
-Generate All Permutations of Local Array only(no Evaluation) Timing table:
+Generate All Permutations of Local Array Timing table:
 ---
 <table>
 <tr>
@@ -25,10 +25,9 @@ Generate All Permutations of Local Array only(no Evaluation) Timing table:
 </tr>
 </table>
   
-___
+
 Generate All Permutations of Local Array with full Evaluation of Permutation, Scan and reduction table:
-
-
+---
 <table>
   <tr>
     <th>Total elements</th><th>Num permutations x evaluation steps</th><th>Tesla K20c GPU time</th><th>Tesla K40c GPU time</th>

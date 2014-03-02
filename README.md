@@ -25,32 +25,32 @@ Generate All Permutations of Local Array only(no Evaluation) Timing table:
 </tr>
 </table>
   
+___
 Generate All Permutations of Local Array with full Evaluation of Permutation, Scan and reduction table:
----
- ___
+
 
 <table>
   <tr>
-    <th>Total elements</th><th>Num permutations X evaluation steps</th><th>Tesla K20c GPU time</th><
+    <th>Total elements</th><th>Num permutations x evaluation steps</th><th>Tesla K20c GPU time</th><th>Tesla K40c GPU time</th>
   </tr>
   <tr>
-    <td> 13</td><td> 647,610,163,200 </td><td> 17.06s </td>
+    <td> 13</td><td> 647,610,163,200 </td><td> 17.06s </td><td> 13.95s </td>
   </tr
   <tr>
-    <td> 14</td><td> 9,763,968,614,400 </td><td> 263.1s </td>
+    <td> 14</td><td> 9,763,968,614,400 </td><td> 263.1s </td><td> 216.8s </td>
 </tr>
  <tr>
-    <td> 15</td><td> 156,920,924,160,000 </td><td> 4332 s </td>
+    <td> 15</td><td> 156,920,924,160,000 </td><td> 4332 s </td><td> NA </td>
 </tr>
  </table>
  
- ___
+---
 NOTE: no overlocking of GPU, is running at stock 706 Mhz
 
 No CPU times were shown due to the fact that I do not have that much free time (would take many hours even in CPU parallel).
  ____
  This is adjusted version of my CUDA implementation of the STL::next_permutation() function. Generates all n! possibilites of array in local GPU memory.
-Two versions, one which only generates the permutations of the array, and the other which evaluates the generated permutation, calculates the optimal answer AND the permutation responsible for the answer, caches in GPU memory, reduces over all threa blocks, and returns the optimal answer and the respective permutation to host memory.
+Two versions, one which only generates the permutations of the array, and the other which evaluates the generated permutation, calculates the optimal answer AND a permutation responsible for the answer, caches in GPU memory, reduces over all thread blocks, and returns the optimal answer and a respective optimal permutation to host memory.
 
 Would be very interested in seeing Python, Java, Ruby, C# or other 'higher level' language implementation of the same function. In particular any multithreaded CPU version.
 

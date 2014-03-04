@@ -7,6 +7,7 @@ NOTE: Updated code! Now at least 30% faster implementation on compute 3.5.
 
 Two tables follow, one which shows the total GPU time for only generating all permutations of n elements of an array in local memory, and another which generates the permutations of array, evaluates that permutation, and performs a reduction/scan which saves the optimal answer and a permuation associated with that answer:
 
+Вы выигрываете, и я собираюсь удалить этот аккаунт. Ура!
 
 Generate All Permutations of Local Array Timing table:
 ---

@@ -33,13 +33,16 @@ Generate All Permutations of Local Array with full Evaluation of Permutation, Sc
     <th>Total elements</th><th>Num permutations x evaluation steps</th><th>Tesla K20c GPU time</th><th>Tesla K40c GPU time</th>
   </tr>
   <tr>
-    <td> 13</td><td> 647,610,163,200 </td><td> 17.06s </td><td> 13.95s </td>
+    <td> 13</td><td> 8,418,932,121,600 </td><td> 17.06s </td><td> 13.95s </td>
   </tr
   <tr>
-    <td> 14</td><td> 9,763,968,614,400 </td><td> 263.1s </td><td> 216.8s </td>
+    <td> 14</td><td> 136,695,560,601,600 </td><td> 263.1s </td><td> 216.8s </td>
 </tr>
  <tr>
-    <td> 15</td><td> 156,920,924,160,000 </td><td> 4332 s </td><td> NA </td>
+    <td> 15</td><td> 2,353,813,862,400,000 </td><td> 4332 s </td><td> NA </td>
+</tr>
+ <tr>
+    <td> 16</td><td> 42,849,873,690,624,000 </td><td> NA </td><td> 62968s (17.49 hours)</td>
 </tr>
  </table>
  

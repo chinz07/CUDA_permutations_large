@@ -63,6 +63,8 @@ For a given value/cost data set associated with each index it is possible that m
  
  For the earlier version see my other CUDA_next_permutation project. The full evaluation version will only work with GPU of compute capability 3.0 or higher (GTX 660 or better). Will perform better on the Tesla line(or Titan) due to the higher number of 64-bit double precision units.
  
+ [![githalytics.com alpha](https://cruel-carlota.pagodabox.com/b2a3438cc40be860aca12c8966a10aa6 "githalytics.com")](http://githalytics.com/OlegKonings/CUDA_permutations_large)
+ 
  <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -74,4 +76,6 @@ For a given value/cost data set associated with each index it is possible that m
 
 </script>
 [![githalytics.com alpha](https://cruel-carlota.pagodabox.com/b2a3438cc40be860aca12c8966a10aa6 "githalytics.com")](http://githalytics.com/OlegKonings/CUDA_permutations_large)
+
+
 
